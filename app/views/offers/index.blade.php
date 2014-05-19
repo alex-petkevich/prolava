@@ -27,9 +27,9 @@
       <td>{{{ $offer->title }}}</td>
       <td>{{ $offer->webDescription(array('shorten' => true, 'length' => 60)) }}</td>
       <td>{{{ $offer->city->name }}}</td>
-      <td>{{{ $offer->company->name }}}</td>
+      <td>{{{ $offer->company->title }}}</td>
       <td>{{{ $offer->off }}}</td>
-      <td><img src="" style="max-width: 200px; max-height:150px;"></td>
+      <td><img src="{{{ $offer->image }}}" style="max-width: 200px; max-height:150px;"></td>
       <td>
          @foreach($offer->tags as $tag)
          <span class="badge">{{{$tag->name}}}</span>

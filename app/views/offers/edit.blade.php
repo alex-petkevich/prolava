@@ -19,21 +19,22 @@
          foreach (City::get(array('id', 'name')) as $city) {
             $cities[$city->id] = $city->name;
          } ?>
-      
-        <li>
-            {{ Form::label('city_id', 'City_id:') }}
-            {{ Form::input('number', 'city_id') }}
-        </li>
 
-         <?php $companies = array(0 => 'Choose company');
-         foreach (Company::get(array('id', 'name')) as $company) {
-            $companies[$company->id] = $company->name;
+         <li>
+            {{ Form::label('city_id', 'City_id:') }}
+            {{ Form::select('city_id', $cities) }}
+         </li>
+
+
+      <?php $companies = array(0 => 'Choose company');
+         foreach (Company::get(array('id', 'title')) as $company) {
+            $companies[$company->id] = $company->title;
          } ?>
-      
-        <li>
+
+         <li>
             {{ Form::label('company_id', 'Company_id:') }}
-            {{ Form::input('number', 'company_id') }}
-        </li>
+            {{ Form::select('company_id', $companies) }}
+         </li>
 
         <li>
             {{ Form::label('off', 'Off:') }}
@@ -43,11 +44,11 @@
       <li>
          {{ Form::label('file', 'Image:') }}
          {{ Form::file('file')}}
-         <img src="" id="thumb" style="max-width:300px; max-height: 200px; display:block; ">
+         <img src="{{{ $offer->image }}}" id="thumb" style="max-width:300px; max-height: 200px; display:block; ">
          {{ Form::hidden('image') }}
          <div class="error"></div>
       </li>
-
+      
       <li>
             {{ Form::label('expires', 'Expires:') }}
             {{ Form::text('expires') }}
@@ -55,7 +56,7 @@
 
       <li>
          {{ Form::label('tags', 'Tags:') }}
-         {{ Form::text('tags', Input::old('tags', implode(', ', array_fetch($offer->tags()->get(array('name'))->toArray(), 'name')))) }}
+         {{ Form::text('tags', Input::old('tags', implode(', ', array_fetch($offer->tags()->get(array('title'))->toArray(), 'title')))) }}
       </li>
 
 		<li>

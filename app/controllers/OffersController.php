@@ -58,14 +58,14 @@ class OffersController extends BaseController {
             }
          }
 
-         if (count($tags) == 0) {
+         /*if (count($tags) == 0) {
             return Redirect::route('offers.create')
                ->withInput()
                ->with('message', 'Insert at least one tag.');
-         }
+         }*/
 
          $offer = $this->offer->create(Input::except('tags', 'file'));
-         $offer->tags()->sync($tags);
+        // $offer->tags()->sync($tags);
 
          return Redirect::route('offers.index');
       }
@@ -127,13 +127,13 @@ class OffersController extends BaseController {
          $tags = array();
 
          foreach (explode(', ', Input::get('tags')) as $tag_name) {
-            if ($tag = Tag::where('name', '=', $tag_name)->first()) {
+            if ($tag = Tag::where('title', '=', $tag_name)->first()) {
                $tags[] = $tag->id;
             }
          }
 
          if (count($tags) == 0) {
-            return Redirect::route('offers.create')
+            return Redirect::route('offers.edit')
                ->withInput()
                ->withErrors($validation)
                ->with('message', 'Insert at least one tag.');
