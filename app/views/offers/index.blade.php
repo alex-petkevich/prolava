@@ -4,7 +4,8 @@
 
 <h1>All Offers</h1>
 
-<p>{{ link_to_route('offers.create', 'Add new offer') }}</p>
+
+<p> {{ link_to_route('offers.create', 'Add new offer', array(), array('class'=> 'btn')) }}</p>
 
 @if ($offers->count())
 <table class="table table-striped table-bordered">
@@ -32,7 +33,7 @@
       <td><img src="{{{ $offer->image }}}" style="max-width: 200px; max-height:150px;"></td>
       <td>
          @foreach($offer->tags as $tag)
-         <span class="badge">{{{$tag->name}}}</span>
+         <span class="badge">{{{$tag->title}}}</span>
          @endforeach
       </td>
       <td>{{{ $offer->expires }}}</td>

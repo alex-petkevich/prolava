@@ -58,6 +58,9 @@ class Offer extends Eloquent {
       $order = $desc ? 'desc' : 'asc';
       return $query->orderBy('created_at', $order);
    }
-   
-   
+
+   public function usersComments()
+   {
+      return $this->belongsToMany('User', 'comments')->withPivot('body', 'mark')->withTimestamps();
+   }
 }

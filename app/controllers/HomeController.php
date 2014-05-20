@@ -52,7 +52,7 @@ class HomeController extends BaseController {
     */
    public function byTag($name)
    {
-      $tag = Tag::whereName($name)->firstOrFail();
+      $tag = Tag::whereTitle($name)->firstOrFail();
 
       $offers = $tag->offers()->active()->sortLatest()->paginate();
       $title = "Offers tagged as: " . $tag->title;
@@ -71,7 +71,7 @@ class HomeController extends BaseController {
    {
       $city = City::whereName($name)->firstOrFail();
 
-      $offers = $city->offersr()->active()->sortLatest()->paginate();
+      $offers = $city->offers()->active()->sortLatest()->paginate();
       $title = "Offers in: " . $city->name;
 
       return View::make('home.index', compact('offers', 'title'));
@@ -85,7 +85,7 @@ class HomeController extends BaseController {
     */
    public function byCompany($name)
    {
-      $company = Company::whereName($name)->firstOrFail();
+      $company = Company::whereTitle($name)->firstOrFail();
 
       $offers = $company->offers()->active()->sortLatest()->paginate();
       $title = "Offers by: " . $company->name;

@@ -54,7 +54,13 @@
             {{ Form::text('expires') }}
         </li>
 
-		<li>
+      <li>
+         {{ Form::label('tags', 'Tags:') }}
+         {{ Form::text('tags', Input::old('tags', implode(', ', array_fetch($offer->tags()->get(array('title'))->toArray(), 'title')))) }}
+      </li>
+
+
+      <li>
 			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
 		</li>
 	</ul>

@@ -7,7 +7,7 @@
       <span class="label label-important label-big">{{{ $offer->off }}}%</span>
       {{{ $offer->title }}}
       <small> by
-         <a href="{{{ route('home.by_company', $offer->company->name) }}}">{{{ $offer->company->name }}}</a>
+         <a href="{{{ route('home.by_company', $offer->company->title) }}}">{{{ $offer->company->title }}}</a>
       </small>
    </h1>
 </div>

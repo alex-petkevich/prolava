@@ -33,7 +33,8 @@ class OffersController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('offers.create');
+      $offer = $this->offer;
+		return View::make('offers.create',compact('offer'));
 	}
 
    /**
@@ -58,14 +59,14 @@ class OffersController extends BaseController {
             }
          }
 
-         /*if (count($tags) == 0) {
+         if (count($tags) == 0) {
             return Redirect::route('offers.create')
                ->withInput()
                ->with('message', 'Insert at least one tag.');
-         }*/
+         }
 
          $offer = $this->offer->create(Input::except('tags', 'file'));
-        // $offer->tags()->sync($tags);
+         $offer->tags()->sync($tags);
 
          return Redirect::route('offers.index');
       }
@@ -133,7 +134,7 @@ class OffersController extends BaseController {
          }
 
          if (count($tags) == 0) {
-            return Redirect::route('offers.edit')
+            return Redirect::route('offers.edit', $id)
                ->withInput()
                ->withErrors($validation)
                ->with('message', 'Insert at least one tag.');

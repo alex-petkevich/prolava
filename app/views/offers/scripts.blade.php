@@ -72,12 +72,12 @@
          .autocomplete({
             source: function( request, response ) {
                $.getJSON( "/tags", {
-                     term: extractLast( request.term ),
+                     term: extractLast( request.term )
                   },
                   function( data ) {
                      response($.map(data, function(item) {
                         return {
-                           value: item.name
+                           value: item.title
                         }
                      }))
                   }
