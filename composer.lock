@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "772f50cbcad538203f87094d40bcd343",
+    "hash": "b8afe7ad61ba96af984bbf0ea1e44fc7",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -776,7 +776,7 @@
                     "Kint.class.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1666,8 +1666,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "way/generators": 20,
-        "raveren/kint": 20
+        "raveren/kint": 20,
+        "way/generators": 20
     },
     "platform": [
 
