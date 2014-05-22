@@ -2,18 +2,18 @@
 
 @section('main')
 
-<h1>All Comments</h1>
+<h1>{{trans('cities.all_comments')}}</h1>
 
-<p>{{ link_to_route('comments.create', 'Add new comment') }}</p>
+<p>{{ link_to_route('comments.create', trans('cities.add_new_comment')) }}</p>
 
 @if ($comments->count())
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Body</th>
-				<th>User_id</th>
-				<th>Offer_id</th>
-				<th>Mark</th>
+				<th>{{trans('cities.body_')}}</th>
+				<th>{{trans('cities.user_id_')}}</th>
+				<th>{{trans('cities.offer_id_')}}</th>
+				<th>{{trans('cities.mark_')}}</th>
 			</tr>
 		</thead>
 
@@ -24,10 +24,10 @@
 					<td>{{{ $comment->user_id }}}</td>
 					<td>{{{ $comment->offer_id }}}</td>
 					<td>{{{ $comment->mark }}}</td>
-                    <td>{{ link_to_route('comments.edit', 'Edit', array($comment->id), array('class' => 'btn btn-info')) }}</td>
+                    <td>{{ link_to_route('comments.edit', trans('cities.edit')}, array($comment->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('comments.destroy', $comment->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                            {{ Form::submit(trans('cities.delete'), array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
                     </td>
 				</tr>
@@ -35,7 +35,7 @@
 		</tbody>
 	</table>
 @else
-	There are no comments
+   {{trans('cities.no_comments')}}
 @endif
 
 @stop

@@ -4,10 +4,10 @@
    <meta charset="utf-8">
 </head>
 <body>
-<h1>Welcome to Offers!</h1>
+<h1>{{ trans('emails.welcome_offers') }}</h1>
 
 <div>
-   We are glad that you are interested in us, {{{ $username }}}!
+   {{ trans('emails.glad_interested',array('name'=>$username)) }}!
 </div>
 </body>
 </html>

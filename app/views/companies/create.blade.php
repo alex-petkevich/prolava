@@ -2,17 +2,17 @@
 
 @section('main')
 
-<h1>Create Company</h1>
+<h1>{{trans('companies.create_company')}}</h1>
 
 {{ Form::open(array('route' => 'companies.store')) }}
 	<ul>
         <li>
-            {{ Form::label('title', 'Title:') }}
+            {{ Form::label('title', trans('companies.title')) }}
             {{ Form::text('title') }}
         </li>
 
 		<li>
-			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
+			{{ Form::submit(trans('companies.submit'), array('class' => 'btn btn-info')) }}
 		</li>
 	</ul>
 {{ Form::close() }}

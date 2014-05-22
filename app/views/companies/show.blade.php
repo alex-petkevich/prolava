@@ -2,24 +2,24 @@
 
 @section('main')
 
-<h1>Show Company</h1>
+<h1>{{trans('companies.show_company')}}</h1>
 
-<p>{{ link_to_route('companies.index', 'Return to all companies') }}</p>
+<p>{{ link_to_route('companies.index', trans('companies.return_all')) }}</p>
 
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th>Title</th>
+			<th>{{trans('companies.title_')}}</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<tr>
 			<td>{{{ $company->title }}}</td>
-                    <td>{{ link_to_route('companies.edit', 'Edit', array($company->id), array('class' => 'btn btn-info')) }}</td>
+                    <td>{{ link_to_route('companies.edit', trans('companies.edit'), array($company->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('companies.destroy', $company->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                            {{ Form::submit(trans('companies.delete'), array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
                     </td>
 		</tr>

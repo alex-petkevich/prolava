@@ -12,17 +12,17 @@
 <div class="navbar navbar-fixed-top">
    <div class="navbar-inner">
       <div class="container">
-         <a class="brand" href="{{ route('home') }}">Habr Offers</a>
+         <a class="brand" href="{{ route('home') }}">{{ trans('general.offers') }}</a>
          <ul class="nav">
-            <li><a href="{{ route('home') }}">Home</a></li>
+            <li><a href="{{ route('home') }}">{{ trans('general.home') }}</a></li>
          </ul>
          <div class="btn-group pull-right">
             @if(Auth::guest())
-            <a href="{{ route('login.index') }}" class="btn">Login</a>
-            <a href="{{ route('login.register') }}" class="btn">Register</a>
+            <a href="{{ route('login.index') }}" class="btn">{{ trans('general.login') }}</a>
+            <a href="{{ route('login.register') }}" class="btn">{{ trans('general.register') }}</a>
             @else
-            <a href="{{ route('home.bookmarks') }}" class="btn">My Bookmarks</a>
-            <a href="{{ route('login.logout') }}" class="btn">Logout</a>
+            <a href="{{ route('home.bookmarks') }}" class="btn">{{ trans('general.bookmarks') }}</a>
+            <a href="{{ route('login.logout') }}" class="btn">{{ trans('general.logout') }}</a>
             @endif
          </div>
       </div>
@@ -39,14 +39,14 @@
 
    <div class="row-fluid">
       <div class="span3">
-         <h2>Last Comments</h2>
+         <h2>{{ trans('general.last_comments') }}</h2>
 
          @if (count($comments = Comment::take(5)->get()) > 0)
          @foreach ($comments as $comment)
          @include('partials.comment', $comment)
          @endforeach
          @else
-         There are no comments yet
+         {{ trans('general.no_comments') }}
          @endif
       </div>
 

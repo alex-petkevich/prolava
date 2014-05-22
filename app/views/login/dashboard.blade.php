@@ -2,8 +2,8 @@
 
 @section('main')
 
-<h1>Administrative Dashboard</h1>
+<h1>{{{ trans('login.dashboard') }}}</h1>
 
-<p>Nice to see you, <b>{{{ Auth::user()->username }}}</b></p>
+<p>{{{ trans('login.nice_to_see') }}}, <b>{{{ Auth::user()->username }}}</b></p>
 
 @stop

@@ -8,23 +8,23 @@
 </div>
 @elseif (Session::has('success'))
 <div class="alert alert-success">
-   An e-mail with the password reset has been sent.
+   {{{ trans('auth.emails_has_sent') }}}
 </div>
 @endif
 
-<h1>Forgot your password?</h1>
+<h1>{{{ trans('auth.forgot_password') }}}</h1>
 
-<p>{{ link_to_route('login.index', 'No') }}</p>
+<p>{{ link_to_route('login.index', trans('auth.no')) }}</p>
 
 {{ Form::open() }}
 <ul>
    <li>
-      {{ Form::label('email', 'Your email')}}
+      {{ Form::label('email', trans('auth.your_email'))}}
       {{ Form::email('email') }}
    </li>
 
    <li>
-      {{ Form::submit('Send reminder', array('class' => 'btn')) }}
+      {{ Form::submit(trans('auth.send_reminder'), array('class' => 'btn')) }}
    </li>
 </ul>
 {{ Form::close() }}

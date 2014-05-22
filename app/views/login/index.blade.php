@@ -2,19 +2,19 @@
 
 @section('main')
 
-<h1>Login</h1>
+<h1>{{{ trans('login.login') }}}</h1>
 
-<p>{{ link_to_route('login.register', 'Register') }}</p>
+<p>{{ link_to_route('login.register', trans('login.register')) }}</p>
 
 {{ Form::open(array('route' => 'login.index')) }}
 <ul>
    <li>
-      {{ Form::label('email', 'Email or Username:') }}
+      {{ Form::label('email', trans('login.email_or_username')) }}
       {{ Form::text('email') }}
    </li>
 
    <li>
-      {{ Form::label('password', 'Password:') }}
+      {{ Form::label('password', trans('login.password')) }}
       {{ Form::password('password') }}
    </li>
 
@@ -24,7 +24,7 @@
 </ul>
 {{ Form::close() }}
 
-<p>{{ link_to_route('password.remind', 'Forgot password?') }}</p>
+<p>{{ link_to_route('password.remind',  trans('login.forgot_password')) }}</p>
 
 @include('partials.errors', $errors)
 

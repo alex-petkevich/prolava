@@ -25,7 +25,7 @@
 @endforeach
 {{ $offers->links() }}
 @else
-There are no offers
+ {{ trans('offers.no_offers') }}
 @endif
 
 @stop

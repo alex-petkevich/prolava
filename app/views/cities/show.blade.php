@@ -2,24 +2,24 @@
 
 @section('main')
 
-<h1>Show City</h1>
+<h1>{{trans('cities.show_city')}}</h1>
 
-<p>{{ link_to_route('cities.index', 'Return to all cities') }}</p>
+<p>{{ link_to_route('cities.index', trans('cities.return_all')) }}</p>
 
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th>Name</th>
+			<th>{{trans('cities.name_head')}}</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<tr>
 			<td>{{{ $city->name }}}</td>
-                    <td>{{ link_to_route('cities.edit', 'Edit', array($city->id), array('class' => 'btn btn-info')) }}</td>
+                    <td>{{ link_to_route('cities.edit', trans('cities.edit'), array($city->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('cities.destroy', $city->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                            {{ Form::submit(trans('cities.delete'), array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
                     </td>
 		</tr>
