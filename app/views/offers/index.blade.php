@@ -2,23 +2,23 @@
 
 @section('main')
 
-<h1>All Offers</h1>
+<h1>{{ trans('offers.all_offers') }}</h1>
 
 
-<p> {{ link_to_route('offers.create', 'Add new offer', array(), array('class'=> 'btn')) }}</p>
+<p> {{ link_to_route('offers.create', trans('offers.add_new_offer'), array(), array('class'=> 'btn')) }}</p>
 
 @if ($offers->count())
 <table class="table table-striped table-bordered">
    <thead>
    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>City</th>
-      <th>Company</th>
-      <th>Off</th>
-      <th>Image</th>
-      <th>Tags</th>
-      <th>Expires</th>
+      <th>{{ trans('offers.title_') }}</th>
+      <th>{{ trans('offers.description_') }}</th>
+      <th>{{ trans('offers.city_') }}</th>
+      <th>{{ trans('offers.company_') }}</th>
+      <th>{{ trans('offers.off_') }}</th>
+      <th>{{ trans('offers.image_') }}</th>
+      <th>{{ trans('offers.tags_') }}</th>
+      <th>{{ trans('offers.expires_') }}</th>
    </tr>
    </thead>
 
@@ -38,11 +38,11 @@
       </td>
       <td>{{{ $offer->expires }}}</td>
       <td>
-         {{ link_to_route('offers.edit', 'Edit', array($offer->id), array('class' => 'btn btn-info')) }}
+         {{ link_to_route('offers.edit', trans('offers.edit'), array($offer->id), array('class' => 'btn btn-info')) }}
       </td>
       <td>
          {{ Form::open(array('method' => 'DELETE', 'route' => array('offers.destroy', $offer->id))) }}
-         {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+         {{ Form::submit(trans('offers.delete'), array('class' => 'btn btn-danger')) }}
          {{ Form::close() }}
       </td>
    </tr>
@@ -50,7 +50,7 @@
    </tbody>
 </table>
 @else
-There are no offers
+{{ trans('offers.no_offers') }}
 @endif
 
 @stop

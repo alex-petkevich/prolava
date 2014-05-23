@@ -2,15 +2,15 @@
 
 @section('main')
 
-<h1>All Roles</h1>
+<h1>{{ trans('offers.all_roles') }}</h1>
 
-<p>{{ link_to_route('roles.create', 'Add new role') }}</p>
+<p>{{ link_to_route('roles.create', trans('offers.add_new_role')) }}</p>
 
 @if ($roles->count())
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Role</th>
+				<th>{{ trans('offers.role_') }}</th>
 			</tr>
 		</thead>
 
@@ -18,10 +18,10 @@
 			@foreach ($roles as $role)
 				<tr>
 					<td>{{{ $role->role }}}</td>
-                    <td>{{ link_to_route('roles.edit', 'Edit', array($role->id), array('class' => 'btn btn-info')) }}</td>
+                    <td>{{ link_to_route('roles.edit', trans('offers.edit'), array($role->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('roles.destroy', $role->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                            {{ Form::submit(trans('offers.delete'), array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
                     </td>
 				</tr>
@@ -29,7 +29,7 @@
 		</tbody>
 	</table>
 @else
-	There are no roles
+{{ trans('offers.no_roles') }}
 @endif
 
 @stop

@@ -2,17 +2,17 @@
 
 @section('main')
 
-<h1>Edit Role</h1>
+<h1>{{ trans('offers.edit_role') }}</h1>
 {{ Form::model($role, array('method' => 'PATCH', 'route' => array('roles.update', $role->id))) }}
 	<ul>
         <li>
-            {{ Form::label('role', 'Role:') }}
+            {{ Form::label('role', trans('offers.role')) }}
             {{ Form::text('role') }}
         </li>
 
 		<li>
-			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('roles.show', 'Cancel', $role->id, array('class' => 'btn')) }}
+			{{ Form::submit(trans('offers.update'), array('class' => 'btn btn-info')) }}
+			{{ link_to_route('roles.show', trans('offers.cancel'), $role->id, array('class' => 'btn')) }}
 		</li>
 	</ul>
 {{ Form::close() }}

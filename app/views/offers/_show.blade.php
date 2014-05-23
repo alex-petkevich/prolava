@@ -36,7 +36,7 @@
 <hr>
 
 <div class="page-header">
-   <h3>User's comments <small>leave and yours one</small></h3>
+   <h3>{{ trans('offers.user_comments') }} <small>{{ trans('offers.leave_you') }}</small></h3>
 </div>
 
 {{ Form::open() }}
@@ -50,7 +50,7 @@
 @stop
 
 @if(!$offer->usersComments->count())
-<div class="well">You can be first to comment on this offer!</div>
+<div class="well">{{ trans('offers.you_can_be_first') }}</div>
 @endif
 
 @if(Auth::guest() || (!Auth::guest() && !$offer->usersComments->contains(Auth::user()->id)))
@@ -70,7 +70,7 @@
       <img class="media-object" data-src="holder.js/64x64">
    </a>
    <div class="media-body">
-      <h4 class="media-heading">{{{ $user->username }}} <span class="label label-success">mark: {{{ $user->pivot->mark }}}</span></h4>
+      <h4 class="media-heading">{{{ $user->username }}} <span class="label label-success">{{ trans('offers.mark') }}: {{{ $user->pivot->mark }}}</span></h4>
       <p class="muted">{{ str_replace("\r\n", '<br>', e($user->pivot->body)) }}</p>
    </div>
 </div>
