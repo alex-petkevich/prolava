@@ -59,12 +59,12 @@ class LoginController extends BaseController {
       
       Mail::send('emails.welcome', array('username' => $user->username), function($message) use ($user)
       {
-         $message->to($user->email, $user->username)->subject('Welcome to Habra Offers!');
+         $message->to($user->email, $user->username)->subject(trans('login.welcome_subj'));
       });
       
       Auth::loginUsingId($user->id);
 
-      return Redirect::home()->with('message', 'Thank you for registration, now you can comment on offers!');
+      return Redirect::home()->with('message', trans('login.thank_you'));
 	}
 
 	/**
@@ -75,7 +75,7 @@ class LoginController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return View::make('logins.show');
+        return View::make('login.show');
 	}
 
 	/**
@@ -86,7 +86,7 @@ class LoginController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('logins.edit');
+        return View::make('login.edit');
 	}
 
 	/**
@@ -128,7 +128,7 @@ class LoginController extends BaseController {
          return Redirect::intended('/');
       }
 
-      return Redirect::back()->withInput(Input::except('password'))->with('message', 'Wrong creadentials!');
+      return Redirect::back()->withInput(Input::except('password'))->with('message', trans('login.wrong_creds'));
    }
 
 
@@ -141,7 +141,7 @@ class LoginController extends BaseController {
    {
       Auth::logout();
 
-      return Redirect::to('login')->with('message', 'See you again!');
+      return Redirect::to('login')->with('message', trans('login.see_again'));
    }
 
    /**
@@ -166,7 +166,7 @@ class LoginController extends BaseController {
 
       return Password::remind($credentials, function($message, $user)
       {
-         $message->subject('Password Reminder on Habra Offers');
+         $message->subject(trans('login.reminder_subject'));
       });
    }
 
@@ -199,7 +199,7 @@ class LoginController extends BaseController {
 
          Auth::loginUsingId($user->id);
 
-         return Redirect::home()->with('message', 'Your password has been successfully reseted.');
+         return Redirect::home()->with('message', trans('login.success_reset'));
       });
    }
 

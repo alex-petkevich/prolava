@@ -9,5 +9,11 @@
       'forgot_password' => 'Забыли пароль?',
       'email' => 'Email:',
       'username' => 'Имя пользователя:',
-      'submit' => 'Подтвердить'
+      'submit' => 'Подтвердить',
+      'thank_you' => 'Спасибо за регистрацию!',
+      'see_again' => 'Приходите снова!',
+      'reminder_subject' => 'Напоминание пароля',
+      'success_reset' => 'Ваш пароль был успешно сброшен.',
+      'wrong_creds' => 'Неверный логин или пароль!',
+      'welcome_subj' => 'Welcome to site!'
    );

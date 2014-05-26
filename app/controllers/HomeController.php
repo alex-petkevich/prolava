@@ -18,7 +18,7 @@ class HomeController extends BaseController {
    {
       $offers = Offer::active()->sortLatest()->paginate();
 
-      $title = "Index page";
+      $title = trans('general.index_page');
 
       return View::make('home.index', compact('offers', 'title'));
    }
