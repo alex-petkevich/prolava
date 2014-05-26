@@ -62,8 +62,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
    public function isManager()
    {
-      $manager_role = Role::whereRole('manager')->first();
-      return $this->roles->contains($manager_role->id) || $this->isAdmin();
+      $admin_role = Role::whereRole('admin')->first();
+      return $this->roles->contains($admin_role->id) || $this->isAdmin();
    }
 
    public function isModerator()
@@ -90,7 +90,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     public function getRememberToken()
     {
-        // TODO: Implement getRememberToken() method.
+        return $this->remember_token;
     }
 
     /**
@@ -101,7 +101,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     public function setRememberToken($value)
     {
-        // TODO: Implement setRememberToken() method.
+        $this->remember_token = $value;
     }
 
     /**
@@ -111,6 +111,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     public function getRememberTokenName()
     {
-        // TODO: Implement getRememberTokenName() method.
+        return 'remember_token';
     }
 }

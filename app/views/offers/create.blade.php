@@ -32,7 +32,7 @@
       } ?>
 
       <li>
-         {{ Form::label('company_id', trans('offers.company_id') }}
+         {{ Form::label('company_id', trans('offers.company_id')) }}
          {{ Form::select('company_id', $companies) }}
       </li>
 

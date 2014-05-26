@@ -2,17 +2,17 @@
 
 @section('main')
 
-<h1>{{ trans('offers.create_role') }}</h1>
+<h1>{{ trans('roles.create_role') }}</h1>
 
 {{ Form::open(array('route' => 'roles.store')) }}
 	<ul>
         <li>
-            {{ Form::label('role', trans('offers.create_role')) }}
+            {{ Form::label('role', trans('roles.create_role')) }}
             {{ Form::text('role') }}
         </li>
 
 		<li>
-			{{ Form::submit(trans('offers.submit'), array('class' => 'btn btn-info')) }}
+			{{ Form::submit(trans('roles.submit'), array('class' => 'btn btn-info')) }}
 		</li>
 	</ul>
 {{ Form::close() }}

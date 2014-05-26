@@ -48,7 +48,7 @@
             // Что-то пошло не так
             error: function (result) {
                // Ошибка на стороне сервера
-               error.text("Upload impossible");
+               error.text("{{ trans('offers.upload_error') }}");
                error.show();
             }
          });
