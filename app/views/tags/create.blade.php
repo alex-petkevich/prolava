@@ -2,17 +2,17 @@
 
 @section('main')
 
-<h1>Create Tag</h1>
+<h1>{{ trans('tags.create_tag') }}</h1>
 
 {{ Form::open(array('route' => 'tags.store')) }}
 	<ul>
         <li>
-            {{ Form::label('title', 'Title:') }}
+            {{ Form::label('title', trans('tags.title')) }}
             {{ Form::text('title') }}
         </li>
 
 		<li>
-			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
+			{{ Form::submit(trans('tags.submit'), array('class' => 'btn btn-info')) }}
 		</li>
 	</ul>
 {{ Form::close() }}

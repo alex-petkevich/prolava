@@ -1,13 +1,13 @@
 <?
    return array(
-      'dashboard' => 'Administrative Dashboard',
-      'nice_to_see' => 'Nice to see you',
-      'login' => 'Login',
-      'register' => 'Register',
-      'email_or_username' => 'Email or Username:',
-      'password' => 'Password:',
-      'forgot_password' => 'Forgot password?',
+      'dashboard' => 'Панель управления',
+      'nice_to_see' => 'Приятно познакомиться',
+      'login' => 'Логин',
+      'register' => 'Регистрация',
+      'email_or_username' => 'Email или Имя пользователя:',
+      'password' => 'Пароль:',
+      'forgot_password' => 'Забыли пароль?',
       'email' => 'Email:',
-      'username' => 'Username:',
-      'submit' => 'Submit'
+      'username' => 'Имя пользователя:',
+      'submit' => 'Подтвердить'
    );

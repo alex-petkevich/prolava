@@ -4,16 +4,16 @@
 
 <div class="page-header">
    <h1>
-      <span class="label label-important label-big">{{{ $offer->off }}}%</span>
-      {{{ $offer->title }}}
+      <span class="label label-important label-big">{{ $offer->off }}%</span>
+      {{ $offer->title }}
       <small> by
-         <a href="{{{ route('home.by_company', $offer->company->title) }}}">{{{ $offer->company->title }}}</a>
+         <a href="{{ route('home.by_company', $offer->company->title) }}">{{ $offer->company->title }}</a>
       </small>
    </h1>
 </div>
 
 <div class="pull-left image-container-big">
-   <img class="img-rounded" src="" alt="{{{ $offer->title }}}">
+   <img class="img-rounded" src="" alt="{{ $offer->title }}">
 </div>
 
 <div class="description">
@@ -22,10 +22,10 @@
 
 <div class="clearfix"></div>
 <hr>
-<p>Location:
+<p>{{ trans('offers.location') }}:
    <a href="{{ route('home.by_city', $offer->city->name) }}">{{{ $offer->city->name }}}</a>
 </p>
-<p>Tags:
+<p>{{ trans('offers.tags') }}:
    @foreach($offer->tags as $tag)
    <a class="no_decoration" href="{{ route('home.by_tag', $tag->title) }}">
       <span class="badge">{{{$tag->title}}}</span>
@@ -43,7 +43,7 @@
 {{ Form::textarea('body', Input::old('body'), array('class' => 'input-block-level', 'style' => 'resize: vertical;'))}}
 <div class="input-append">
    {{ Form::select('mark', array(0 => 5, 1 => 4, 2 => 3, 3 => 2, 4 => 1), Input::old('mark', 0)) }}
-   {{ Form::submit('Comment', array('class' => 'btn btn-success', 'style' => 'clear: both;')) }}
+   {{ Form::submit(trans('offers.comment'), array('class' => 'btn btn-success', 'style' => 'clear: both;')) }}
 </div>
 {{ Form::close() }}
 @include('partials.errors', $errors)
@@ -58,7 +58,7 @@
 {{ Form::textarea('body', Input::old('body'), array('class' => 'input-block-level', 'style' => 'resize: vertical;'))}}
 <div class="input-append">
    {{ Form::select('mark', array(5 => 5, 4 => 4, 3 => 3, 2 => 2, 1 => 1), Input::old('mark', 5)) }}
-   {{ Form::submit('Comment', array('class' => 'btn btn-success', 'style' => 'clear: both;')) }}
+   {{ Form::submit(trans('offers.comment'), array('class' => 'btn btn-success', 'style' => 'clear: both;')) }}
 </div>
 {{ Form::close() }}
 @include('partials.errors', $errors)

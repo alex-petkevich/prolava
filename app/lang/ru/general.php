@@ -1,18 +1,18 @@
 <?
    return array(
-      'mark' => 'Mark',
-      'offers' => 'Offers',
-      'home' => 'Home',
-      'login' => 'Login',
-      'register' => 'Register',
-      'bookmarks' => 'My Bookmarks',
-      'logout' => 'Logout',
-      'last_comments' => 'Last Comments',
-      'no_comments' => 'There are no comments yet',
-      'companies' => 'Companies',
-      'tags' => 'Tags',
-      'cities' => 'Cities',
-      'comments' => 'Comments',
-      'roles' => 'Roles',
-      'users' => 'Users'
+      'mark' => 'Отметка',
+      'offers' => 'Предложения',
+      'home' => 'Домой',
+      'login' => 'Логин',
+      'register' => 'Регистрация',
+      'bookmarks' => 'Мои ссылки',
+      'logout' => 'Выход',
+      'last_comments' => 'Последние комментарии',
+      'no_comments' => 'Комментариев нет',
+      'companies' => 'Компании',
+      'tags' => 'Тэги',
+      'cities' => 'Города',
+      'comments' => 'Комментарии',
+      'roles' => 'Роли',
+      'users' => 'Пользователи'
    );

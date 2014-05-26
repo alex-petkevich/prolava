@@ -1,17 +1,17 @@
 <?
 return array(
-   'create_role' => 'Create Role',
-   'role' => 'Role:',
-   'submit' => 'Submit',
-   'edit_city' => 'Edit Role',
-   'update' => 'Update',
-   'cancel' => 'Cancel',
-   'all_roles' => 'All Roles',
-   'add_new_role' => 'Add new role',
-   'role_' => 'Role',
-   'edit' => 'Edit',
-   'delete' => 'Delete',
-   'no_roles' => 'There are no roles',
-   'show_role' => 'Show Role',
-   'return_all' => 'Return to all roles'
+   'create_role' => 'Создать роль',
+   'role' => 'Роль:',
+   'submit' => 'Подтвердить',
+   'edit_city' => 'Изменить роль',
+   'update' => 'Обновить',
+   'cancel' => 'Отменить',
+   'all_roles' => 'Все роли',
+   'add_new_role' => 'Добавить роль',
+   'role_' => 'Роль',
+   'edit' => 'Изменить',
+   'delete' => 'Удалить',
+   'no_roles' => 'Нет ролей',
+   'show_role' => 'Показать роль',
+   'return_all' => 'Вернуться к списку'
 );

@@ -104,7 +104,7 @@ Route::post('offer_{id}', array('before' => 'not_guest|regular_user', 'uses' => 
 
 Route::filter('not_guest', function(){
    if (Auth::guest()) {
-      return Redirect::intended('/')->withInput()->with('message', 'You should be logged in to provide this action.');
+      return Redirect::intended('/')->withInput()->with('message', trans('users.must_be_logged'));
    }
 });
 

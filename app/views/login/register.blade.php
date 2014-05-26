@@ -2,7 +2,7 @@
 
 @section('main')
 
-<h1>Register</h1>
+<h1>{{ trans('login.register') }}</h1>
 
 <p>{{ link_to_route('login.index', trans('login.login')) }}</p>
 

@@ -2,27 +2,27 @@
 
 @section('main')
 
-<h1>Edit User</h1>
+<h1>{{ trans('users.edit_user') }}</h1>
 {{ Form::model($user, array('method' => 'PATCH', 'route' => array('users.update', $user->id))) }}
 <ul>
    <li>
-      {{ Form::label('username', 'Username:') }}
+      {{ Form::label('username', trans('users.username')) }}
       {{ Form::text('username', $user->username, array('disabled')) }}
    </li>
 
    <li>
-      {{ Form::label('email', 'Email:') }}
+      {{ Form::label('email', trans('users.email')) }}
       {{ Form::text('email', $user->email, array('disabled')) }}
    </li>
 
    <li>
-      {{ Form::label('roles', 'Roles:') }}
+      {{ Form::label('roles', trans('users.roles')) }}
       {{ Form::text('roles', Input::old('roles', implode(', ', array_fetch($user->roles()->get(array('role'))->toArray(), 'role')))) }}
    </li>
 
    <li>
-      {{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-      {{ link_to_route('users.show', 'Cancel', $user->id, array('class' => 'btn')) }}
+      {{ Form::submit(trans('users.update'), array('class' => 'btn btn-info')) }}
+      {{ link_to_route('users.show', trans('users.cancel'), $user->id, array('class' => 'btn')) }}
    </li>
 </ul>
 {{ Form::close() }}

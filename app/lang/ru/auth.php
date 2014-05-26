@@ -1,13 +1,13 @@
 <?
    return array(
-      'email_has_sent' => 'An e-mail with the password reset has been sent.',
-      'forgot_password' => 'Forgot your password?',
-      'no' => 'No',
-      'your_email' => 'Your email',
-      'send_reminder' => 'Send reminder',
-      'reset_password' => 'Reset your password',
+      'email_has_sent' => 'E-mail с паролем был отправлен.',
+      'forgot_password' => 'Забыли пароль?',
+      'no' => 'Нет',
+      'your_email' => 'Ваш email',
+      'send_reminder' => 'Отправить напоминание',
+      'reset_password' => 'Сбросить пароль',
       'email' => 'Email',
-      'new_password' => 'New password',
-      'new_password_confirm' => 'New password confirmation',
-      'reset' => 'Reset'
+      'new_password' => 'Новый пароль',
+      'new_password_confirm' => 'Подтвердите пароль',
+      'reset' => 'Сброс'
    );

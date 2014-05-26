@@ -19,7 +19,7 @@
    </li>
 
    <li>
-      {{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
+      {{ Form::submit(trans('login.submit'), array('class' => 'btn btn-info')) }}
    </li>
 </ul>
 {{ Form::close() }}
