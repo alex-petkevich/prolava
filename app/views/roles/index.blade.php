@@ -7,10 +7,12 @@
 <p>{{ link_to_route('roles.create', trans('roles.add_new_role')) }}</p>
 
 @if ($roles->count())
-	<table class="table table-striped table-bordered">
+	<table class="table table-striped table-bordered table-hover table-condensed">
 		<thead>
 			<tr>
 				<th>{{ trans('roles.role_') }}</th>
+                <th></th>
+                <th></th>
 			</tr>
 		</thead>
 

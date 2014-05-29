@@ -56,7 +56,7 @@ class CommentsController extends BaseController {
 		return Redirect::route('comments.create')
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', trans('validation.errors'));
 	}
 
 	/**
@@ -112,7 +112,7 @@ class CommentsController extends BaseController {
 		return Redirect::route('comments.edit', $id)
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', trans('validation.errors'));
 	}
 
 	/**

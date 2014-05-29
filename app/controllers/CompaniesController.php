@@ -56,7 +56,7 @@ class CompaniesController extends BaseController {
 		return Redirect::route('companies.create')
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', trans('validation.errors'));
 	}
 
 	/**
@@ -112,7 +112,7 @@ class CompaniesController extends BaseController {
 		return Redirect::route('companies.edit', $id)
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', trans('validation.errors'));
 	}
 
 	/**

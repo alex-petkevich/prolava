@@ -6,7 +6,7 @@
 
 <p>{{ link_to_route('offers.index', 'Return to all offers') }}</p>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered table-hover table-condensed">
 	<thead>
    <tr>
       <th>{{ trans('offers.title_') }}</th>

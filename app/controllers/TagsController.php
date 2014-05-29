@@ -64,7 +64,7 @@ class TagsController extends BaseController {
 		return Redirect::route('tags.create')
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', trans('validation.errors'));
 	}
 
 	/**
@@ -120,7 +120,7 @@ class TagsController extends BaseController {
 		return Redirect::route('tags.edit', $id)
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', trans('validation.errors'));
 	}
 
 	/**

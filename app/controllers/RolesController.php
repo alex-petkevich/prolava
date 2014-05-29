@@ -61,7 +61,7 @@ class RolesController extends BaseController {
 		return Redirect::route('roles.create')
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', trans('validation.errors'));
 	}
 
 	/**
@@ -117,7 +117,7 @@ class RolesController extends BaseController {
 		return Redirect::route('roles.edit', $id)
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', trans('validation.errors'));
 	}
 
 	/**

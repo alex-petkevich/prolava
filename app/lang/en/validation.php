@@ -94,5 +94,6 @@ return array(
 	*/
 
 	'attributes' => array(),
+    'errors' => 'There were validation errors.'
 
 );

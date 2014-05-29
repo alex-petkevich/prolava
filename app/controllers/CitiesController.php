@@ -56,7 +56,7 @@ class CitiesController extends BaseController {
 		return Redirect::route('cities.create')
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', trans('validation.errors'));
 	}
 
 	/**
@@ -112,7 +112,7 @@ class CitiesController extends BaseController {
 		return Redirect::route('cities.edit', $id)
 			->withInput()
 			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+			->with('message', trans('validation.errors'));
 	}
 
 	/**

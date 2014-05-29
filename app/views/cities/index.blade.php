@@ -10,7 +10,9 @@
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th></th>
+				<th>{{trans('cities.name_head')}}</th>
+                <th></th>
+                <th></th>
 			</tr>
 		</thead>
 

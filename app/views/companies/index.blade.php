@@ -7,10 +7,12 @@
 <p>{{ link_to_route('companies.create', trans('companies.add_new_company')) }}</p>
 
 @if ($companies->count())
-	<table class="table table-striped table-bordered">
+	<table class="table table-striped table-bordered table-hover table-condensed">
 		<thead>
 			<tr>
 				<th>{{trans('companies.title')}}</th>
+                <th></th>
+                <th></th>
 			</tr>
 		</thead>
 

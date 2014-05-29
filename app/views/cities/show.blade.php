@@ -6,10 +6,12 @@
 
 <p>{{ link_to_route('cities.index', trans('cities.return_all')) }}</p>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered table-hover table-condensed">
 	<thead>
 		<tr>
 			<th>{{trans('cities.name_head')}}</th>
+            <th></th>
+            <th></th>
 		</tr>
 	</thead>
 

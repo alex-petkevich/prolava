@@ -2,8 +2,9 @@
 <html>
 <head>
    <meta charset="utf-8">
-   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
-   <link href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <link href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
    <style>
       table form { margin-bottom: 0; }
       form ul { margin-left: 0; list-style: none; }
@@ -38,7 +39,7 @@
    @endif
 
    @if (Session::has('message'))
-   <div class="flash alert">
+   <div class="alert alert-warning alert-dismissable">
       <p>{{ Session::get('message') }}</p>
    </div>
    @endif

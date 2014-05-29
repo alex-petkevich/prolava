@@ -7,13 +7,15 @@
 <p>{{ link_to_route('comments.create', trans('comments.add_new_comment')) }}</p>
 
 @if ($comments->count())
-	<table class="table table-striped table-bordered">
+	<table class="table table-striped table-bordered table-hover table-condensed">
 		<thead>
 			<tr>
 				<th>{{trans('cities.body_')}}</th>
 				<th>{{trans('cities.user_id_')}}</th>
 				<th>{{trans('cities.offer_id_')}}</th>
 				<th>{{trans('cities.mark_')}}</th>
+                <th></th>
+                <th></th>
 			</tr>
 		</thead>
 

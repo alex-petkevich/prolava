@@ -7,10 +7,12 @@
 <p>{{ link_to_route('tags.create', trans('tags.add_new_tag')) }}</p>
 
 @if ($tags->count())
-	<table class="table table-striped table-bordered">
+	<table class="table table-striped table-bordered table-hover table-condensed">
 		<thead>
 			<tr>
 				<th>{{ trans('tags.title_') }}</th>
+                <th></th>
+                <th></th>
 			</tr>
 		</thead>
 

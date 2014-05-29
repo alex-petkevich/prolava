@@ -94,5 +94,7 @@ return array(
 	*/
 
 	'attributes' => array(),
+    
+    'errors' => 'Найдены ошибки при проверке.'
 
 );

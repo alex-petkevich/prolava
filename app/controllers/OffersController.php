@@ -74,7 +74,7 @@ class OffersController extends BaseController {
       return Redirect::route('offers.create')
          ->withInput()
          ->withErrors($validation)
-         ->with('message', 'There were validation errors.');
+         ->with('message', trans('validation.errors'));
    }
 
 	/**
@@ -149,7 +149,7 @@ class OffersController extends BaseController {
       return Redirect::route('offers.edit', $id)
          ->withInput()
          ->withErrors($validation)
-         ->with('message', 'There were validation errors.');
+         ->with('message', trans('validation.errors'));
    }
 
 	/**

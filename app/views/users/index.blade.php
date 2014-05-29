@@ -5,12 +5,14 @@
 <h1>{{ trans('users.all_users') }}</h1>
 
 @if ($users->count())
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered table-hover table-condensed">
    <thead>
    <tr>
       <th>{{ trans('users.username_') }}</th>
       <th>{{ trans('users.email_') }}</th>
       <th>{{ trans('users.roles_') }}</th>
+       <th></th>
+       <th></th>
    </tr>
    </thead>
 

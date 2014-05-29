@@ -8,7 +8,7 @@
 <p> {{ link_to_route('offers.create', trans('offers.add_new_offer'), array(), array('class'=> 'btn')) }}</p>
 
 @if ($offers->count())
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered table-hover table-condensed">
    <thead>
    <tr>
       <th>{{ trans('offers.title_') }}</th>
@@ -19,6 +19,8 @@
       <th>{{ trans('offers.image_') }}</th>
       <th>{{ trans('offers.tags_') }}</th>
       <th>{{ trans('offers.expires_') }}</th>
+       <th></th>
+       <th></th>
    </tr>
    </thead>
 

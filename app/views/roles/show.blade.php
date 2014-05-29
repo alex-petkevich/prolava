@@ -6,10 +6,12 @@
 
 <p>{{ link_to_route('roles.index', trans('roles.return_all')) }}</p>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered table-hover table-condensed">
 	<thead>
 		<tr>
 			<th>{{ trans('roles.role_') }}</th>
+            <th></th>
+            <th></th>
 		</tr>
 	</thead>
 

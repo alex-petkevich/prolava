@@ -6,12 +6,14 @@
 
 <p>{{ link_to_route('users.index', 'Return to all users') }}</p>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered table-hover table-condensed">
    <thead>
    <tr>
       <th>{{ trans('users.username_') }}</th>
       <th>{{ trans('users.email_') }}</th>
       <th>{{ trans('users.roles_') }}</th>
+       <th></th>
+       <th></th>
    </tr>
    </thead>
 

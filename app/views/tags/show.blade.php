@@ -6,10 +6,12 @@
 
 <p>{{ link_to_route('tags.index', trans('tags.return_all') ) }}</p>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered table-hover table-condensed">
 	<thead>
 		<tr>
 			<th>{{ trans('tags.title_') }}</th>
+            <th></th>
+            <th></th>
 		</tr>
 	</thead>
 
