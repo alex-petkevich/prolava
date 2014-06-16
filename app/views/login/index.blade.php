@@ -7,21 +7,19 @@
 <p>{{ link_to_route('login.register', trans('login.register')) }}</p>
 
 {{ Form::open(array('route' => 'login.index')) }}
-<ul>
-   <li>
+<div class="form-group">
       {{ Form::label('email', trans('login.email_or_username')) }}
       {{ Form::text('email') }}
-   </li>
+   </div>
 
-   <li>
+<div class="form-group">
       {{ Form::label('password', trans('login.password')) }}
       {{ Form::password('password') }}
-   </li>
+</div>
 
-   <li>
+    <div class="form-group">
       {{ Form::submit(trans('login.submit'), array('class' => 'btn btn-info')) }}
-   </li>
-</ul>
+    </div>
 {{ Form::close() }}
 
 <p>{{ link_to_route('password.remind',  trans('login.forgot_password')) }}</p>
