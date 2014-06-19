@@ -4,7 +4,7 @@
 
 <h1>{{ trans('offers.show_offer') }}</h1>
 
-<p>{{ link_to_route('offers.index', 'Return to all offers') }}</p>
+<p>{{ link_to_route('offers.index', trans('offers.return_all')) }}</p>
 
 <table class="table table-striped table-bordered table-hover table-condensed">
 	<thead>

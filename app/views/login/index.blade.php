@@ -6,15 +6,16 @@
 
 <p>{{ link_to_route('login.register', trans('login.register')) }}</p>
 
-{{ Form::open(array('route' => 'login.index')) }}
+<div class="col-xs-4">
+{{ Form::open(array('route' => 'login.index', 'role' => 'form')) }}
 <div class="form-group">
       {{ Form::label('email', trans('login.email_or_username')) }}
-      {{ Form::text('email') }}
+      {{ Form::text('email','', array('class' => 'form-control')) }}
    </div>
 
 <div class="form-group">
       {{ Form::label('password', trans('login.password')) }}
-      {{ Form::password('password') }}
+      {{ Form::password('password', array('class' => 'form-control')) }}
 </div>
 
     <div class="form-group">
@@ -25,5 +26,7 @@
 <p>{{ link_to_route('password.remind',  trans('login.forgot_password')) }}</p>
 
 @include('partials.errors', $errors)
+
+</div>
 
 @stop
