@@ -10,10 +10,10 @@
 	<table class="table table-striped table-bordered table-hover table-condensed">
 		<thead>
 			<tr>
-				<th>{{trans('cities.body_')}}</th>
-				<th>{{trans('cities.user_id_')}}</th>
-				<th>{{trans('cities.offer_id_')}}</th>
-				<th>{{trans('cities.mark_')}}</th>
+				<th>{{trans('comments.body_')}}</th>
+				<th>{{trans('comments.user_id_')}}</th>
+				<th>{{trans('comments.offer_id_')}}</th>
+				<th>{{trans('comments.mark_')}}</th>
                 <th></th>
                 <th></th>
 			</tr>
