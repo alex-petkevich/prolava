@@ -4,7 +4,7 @@
 
 <h1>{{ trans('users.show_user') }}</h1>
 
-<p>{{ link_to_route('users.index', 'Return to all users') }}</p>
+<p>{{ link_to_route('users.index', trans('users.return_all')) }}</p>
 
 <table class="table table-striped table-bordered table-hover table-condensed">
    <thead>

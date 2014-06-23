@@ -1,34 +1,34 @@
 @extends('layouts.scaffold')
 
 @section('main')
-
+<div class="col-xs-5">
 <h1>{{ trans('login.register') }}</h1>
 
 <p>{{ link_to_route('login.index', trans('login.login')) }}</p>
 
-{{ Form::open(array('route' => 'login.register')) }}
-<ul>
-   <li>
-      {{ Form::label('email', trans('login.email')) }}
-      {{ Form::text('email') }}
-   </li>
+{{ Form::open(array('route' => 'login.register', 'role' => 'form')) }}
+    <div class="form-group @if ($errors->has('email')) has-error has-feedback @endif">
+      {{ Form::label('email', trans('login.email'), array('class' => 'control-label')) }}
+      {{ Form::text('email',null, array('class' => 'form-control')) }}
+    </div>
 
-   <li>
-      {{ Form::label('username', trans('login.username')) }}
-      {{ Form::text('username') }}
-   </li>
+    <div class="form-group @if ($errors->has('username')) has-error has-feedback @endif">
+      {{ Form::label('username', trans('login.username'), array('class' => 'control-label')) }}
+      {{ Form::text('username',null, array('class' => 'form-control')) }}
+    </div>
 
-   <li>
-      {{ Form::label('password', trans('login.password')) }}
-      {{ Form::password('password') }}
-   </li>
+    <div class="form-group @if ($errors->has('password')) has-error has-feedback @endif">
+      {{ Form::label('password', trans('login.password'), array('class' => 'control-label')) }}
+      {{ Form::password('password',array('class' => 'form-control')) }}
+    </div>
 
-   <li>
+    <div class="form-group">
       {{ Form::submit(trans('login.submit'), array('class' => 'btn btn-info')) }}
-   </li>
-</ul>
+    </div>
 {{ Form::close() }}
-
+  </div>
+       
+       {{--
 @include('partials.errors', $errors)
-
+--}}
 @stop

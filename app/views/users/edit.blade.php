@@ -1,38 +1,37 @@
 @extends('layouts.scaffold')
 
 @section('main')
-
+<div class="col-xs-5">
 <h1>{{ trans('users.edit_user') }}</h1>
-{{ Form::model($user, array('method' => 'PATCH', 'route' => array('users.update', $user->id))) }}
-<ul>
-   <li>
-      {{ Form::label('username', trans('users.username')) }}
-      {{ Form::text('username', $user->username, array('disabled')) }}
-   </li>
+{{ Form::model($user, array('method' => 'PATCH', 'route' => array('users.update', $user->id), 'role' => 'form')) }}
+    <div class="form-group @if ($errors->has('username')) has-error has-feedback @endif">
+      {{ Form::label('username', trans('users.username'), array('class' => 'control-label')) }}
+      {{ Form::text('username', $user->username, array('disabled'=>1,'class' => 'form-control')) }}
+    </div>
 
-   <li>
-      {{ Form::label('email', trans('users.email')) }}
-      {{ Form::text('email', $user->email, array('disabled')) }}
-   </li>
+    <div class="form-group @if ($errors->has('email')) has-error has-feedback @endif">
+      {{ Form::label('email', trans('users.email'), array('class' => 'control-label')) }}
+      {{ Form::text('email', $user->email, array('disabled'=>1,'class' => 'form-control')) }}
+    </div>
 
-   <li>
-      {{ Form::label('roles', trans('users.roles')) }}
-      {{ Form::text('roles', Input::old('roles', implode(', ', array_fetch($user->roles()->get(array('role'))->toArray(), 'role')))) }}
-   </li>
+    <div class="form-group @if ($errors->has('roles')) has-error has-feedback @endif">
+      {{ Form::label('roles', trans('users.roles'), array('class' => 'control-label')) }}
+      {{ Form::text('roles', Input::old('roles', implode(', ', array_fetch($user->roles()->get(array('role'))->toArray(), 'role'))),array('class' => 'form-control')) }}
+    </div>
 
-   <li>
+        <div class="form-group">
       {{ Form::submit(trans('users.update'), array('class' => 'btn btn-info')) }}
-      {{ link_to_route('users.show', trans('users.cancel'), $user->id, array('class' => 'btn')) }}
-   </li>
-</ul>
+      {{ link_to_route('users.show', trans('users.cancel'), $user->id, array('class' => 'btn btn-default')) }}
+        </div>
 {{ Form::close() }}
-
+</div>
+{{--
 @if ($errors->any())
 <ul>
    {{ implode('', $errors->all('<li class="error">:message</li>')) }}
 </ul>
 @endif
-
+--}}
 @stop
 
 @section('scripts')

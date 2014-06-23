@@ -3,7 +3,7 @@ return array(
    'create_role' => 'Создать роль',
    'role' => 'Роль:',
    'submit' => 'Подтвердить',
-   'edit_city' => 'Изменить роль',
+   'edit_role' => 'Изменить роль',
    'update' => 'Обновить',
    'cancel' => 'Отменить',
    'all_roles' => 'Все роли',
