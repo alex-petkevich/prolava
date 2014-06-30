@@ -21,7 +21,8 @@
             <a href="{{ route('login.index') }}" class="btn">{{ trans('general.login') }}</a>
             <a href="{{ route('login.register') }}" class="btn">{{ trans('general.register') }}</a>
             @else
-            <a href="{{ route('home.bookmarks') }}" class="btn">{{ trans('general.bookmarks') }}</a>
+             <a href="{{ route('home.bookmarks') }}" class="btn">{{ trans('general.bookmarks') }}</a>
+            <a href="{{ route('user.profile') }}" class="btn">{{ trans('general.profile') }}</a>
             <a href="{{ route('login.logout') }}" class="btn">{{ trans('general.logout') }}</a>
             @endif
          </div>

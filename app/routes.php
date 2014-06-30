@@ -14,6 +14,8 @@
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 Route::get('logout', array('as' => 'login.logout', 'uses' => 'LoginController@logout'));
 Route::get('bookmarks', array('before' => 'auth', 'as' => 'home.bookmarks', 'uses' => 'HomeController@bookmarks'));
+Route::get('profile', array('as' => 'user.profile','uses' => 'UsersController@editProfile'));
+    
 
 Route::group(array('before' => 'un_auth'), function()
 {

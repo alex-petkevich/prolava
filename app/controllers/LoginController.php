@@ -29,10 +29,10 @@ class LoginController extends BaseController {
 	 */
 	public function create()
 	{
-        return View::make('logins.create');
+        return View::make('login.create');
 	}
 
-	/**
+	/** 
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response

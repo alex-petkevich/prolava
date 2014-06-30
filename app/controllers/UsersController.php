@@ -89,4 +89,13 @@ class UsersController extends BaseController
       return Redirect::route('users.index');
    }
 
+    /**
+     * show edit form for user profile
+     */
+
+    public function editProfile() {
+        $user = Auth::user();
+        return View::make('users.profile',compact("user"));
+    }
+
 }
