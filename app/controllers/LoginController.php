@@ -162,12 +162,20 @@ class LoginController extends BaseController {
     */
    public function sendReminder()
    {
-      $credentials = array('email' => Input::get('email'));
+       $result = Password::remind( Input::only('email'), function($message, $user)
+       {
+           $message->subject(trans('login.reminder_subject'));
+       });
 
-      return Password::remind($credentials, function($message, $user)
-      {
-         $message->subject(trans('login.reminder_subject'));
-      });
+       switch ($result)
+       {
+           case Password::INVALID_USER:
+               return Redirect::back()->with('error', trans('login.wrong_creds'));
+
+           case Password::REMINDER_SENT:
+               return Redirect::back()->with('status', trans('login.reminder_sent'));
+       }
+
    }
 
 
@@ -178,6 +186,8 @@ class LoginController extends BaseController {
     */
    public function showResetForm($token)
    {
+      if (is_null($token)) App::abort(404);
+       
       return View::make('auth.reset')->with('token', $token);
    }
 
@@ -189,9 +199,9 @@ class LoginController extends BaseController {
     */
    public function resetPassword($token)
    {
-      $credentials = array('email' => Input::get('email'));
+      $credentials = array('email' => Input::only('email'));
 
-      return Password::reset($credentials, function($user, $password)
+      $response =  Password::reset($credentials, function($user, $password)
       {
          $user->password = Hash::make($password);
 
@@ -199,8 +209,18 @@ class LoginController extends BaseController {
 
          Auth::loginUsingId($user->id);
 
-         return Redirect::home()->with('message', trans('login.success_reset'));
       });
+
+       switch ($response)
+       {
+           case Password::INVALID_PASSWORD:
+           case Password::INVALID_TOKEN:
+           case Password::INVALID_USER:
+               return Redirect::back()->with('error', trans('login.success_reset'));
+
+           case Password::PASSWORD_RESET:
+               return Redirect::home()->with('message', trans('login.wrong_creds'));
+       }
    }
 
 }

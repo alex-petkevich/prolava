@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'mrdoggy.alL@gmail.com', 'name' => 'Alex Petkevich'),
+	'from' => array('address' => 'mrdoggy.all@gmail.com', 'name' => 'Alex Petkevich'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'mrdoggy.alL@gmail.com',
+	'username' => 'mrdoggy.all@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------

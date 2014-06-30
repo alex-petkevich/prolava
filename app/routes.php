@@ -21,6 +21,12 @@ Route::group(array('before' => 'un_auth'), function()
    Route::get('register', array('as' => 'login.register', 'uses' => 'LoginController@register'));
    Route::post('login', array('uses' => 'LoginController@login'));
    Route::post('register', array('uses' => 'LoginController@store'));
+
+   Route::get('password/remind', array('as' => 'password.remind', 'uses' => 'LoginController@showReminderForm'));
+   Route::post('password/remind', array('uses' => 'LoginController@sendReminder'));
+   Route::get('password/reset/{token}', array('as' => 'password.reset', 'uses' => 'LoginController@showResetForm'));
+   Route::post('password/reset/{token}', array('uses' => 'LoginController@resetPassword'));
+
 });
 
 Route::group(array('before' => 'admin.auth'), function()
@@ -89,10 +95,6 @@ Route::filter('un_auth', function()
    if (!Auth::guest()) {
       Auth::logout();
    }
-   Route::get('password/remind', array('as' => 'password.remind', 'uses' => 'LoginController@showReminderForm'));
-   Route::post('password/remind', array('uses' => 'LoginController@sendReminder'));
-   Route::get('password/reset/{token}', array('as' => 'password.reset', 'uses' => 'LoginController@showResetForm'));
-   Route::post('password/reset/{token}', array('uses' => 'LoginController@resetPassword'));
 });
 
 Route::get('by_tag/{name}', array('as' => 'home.by_tag', 'uses' => 'HomeController@byTag'))->where('title', '[A-Za-z0-9 -_]+');
