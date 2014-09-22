@@ -21,13 +21,13 @@
 
    @if(!Auth::guest())
    <ul class="nav nav-pills">
-      @if(Auth::user()->isManager())
+      @if(Auth::user()->isAdmin())
       <li>{{ link_to_route('offers.index', trans('general.offers')) }}</li>
       <li>{{ link_to_route('companies.index', trans('general.companies')) }}</li>
       <li>{{ link_to_route('tags.index', trans('general.tags')) }}</li>
       <li>{{ link_to_route('cities.index', trans('general.cities')) }}</li>
       @endif
-      @if(Auth::user()->isModerator())
+      @if(Auth::user()->isAdmin())
       <li>{{ link_to_route('comments.index', trans('general.comments')) }}</li>
       @endif
       @if(Auth::user()->isAdmin())

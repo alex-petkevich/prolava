@@ -4,7 +4,7 @@ class RolesTableSeeder extends Seeder {
 
    public function run()
    {
-      $roles = array(
+       $roles = array(
          array(
             'role' => 'admin',
             'description' => 'Administrative privileges',

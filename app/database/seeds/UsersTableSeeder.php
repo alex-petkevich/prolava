@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('nimdanimda'),
             'updated_at' => DB::raw('NOW()'),
             'created_at' => DB::raw('NOW()'),
+            'remember_token' => ''
          )
       );
 

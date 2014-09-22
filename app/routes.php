@@ -11,6 +11,57 @@
 |
 */
 
+Route::filter('admin_role_only', function()
+{
+    if (!Auth::user()->isAdmin()) {
+        return Redirect::intended('/')->withMessage('You don\'t have enough permissions to do that.');
+    }
+});
+/*
+Route::filter('manager_role_only', function()
+{
+   if (!Auth::user()->isAdmin()) {
+      return Redirect::intended('/')->withMessage('You don\'t have enough permissions to do that.');
+   }
+});
+
+Route::filter('moderator_role_only', function()
+{
+   if (!Auth::user()->isAdmin()) {
+      return Redirect::intended('/')->withMessage('YYou don\'t have enough permissions to do that.');
+   }
+});
+*/
+
+Route::filter('not_guest', function(){
+    if (Auth::guest()) {
+        return Redirect::intended('/')->withInput()->with('message', trans('users.must_be_logged'));
+    }
+});
+
+Route::filter('regular_user', function(){
+    if (!Auth::guest()) {
+        if (!Auth::user()->isRegular()) {
+            return Redirect::back()->with('message', 'You cannot do that due to your role.');
+        }
+    }
+});
+
+Route::filter('admin.auth', function()
+{
+    if (Auth::guest()) {
+        return Redirect::to('login');
+    }
+});
+
+Route::filter('un_auth', function()
+{
+    if (!Auth::guest()) {
+        Auth::logout();
+    }
+});
+
+
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 Route::get('logout', array('as' => 'login.logout', 'uses' => 'LoginController@logout'));
 Route::get('bookmarks', array('before' => 'auth', 'as' => 'home.bookmarks', 'uses' => 'HomeController@bookmarks'));
@@ -38,7 +89,7 @@ Route::group(array('before' => 'admin.auth'), function()
       return View::make('login.dashboard');
    });
 
-   Route::group(array('before' => 'manager_role_only'), function()
+   Route::group(array('before' => 'admin_role_only'), function()
    {
       Route::resource('cities', 'CitiesController');
 
@@ -53,7 +104,7 @@ Route::group(array('before' => 'admin.auth'), function()
 
    Route::resource('comments', 'CommentsController');
 
-   Route::group(array('before' => 'manager_role_only'), function()
+   Route::group(array('before' => 'admin_role_only'), function()
    {
       Route::resource('roles', 'RolesController');
 
@@ -61,43 +112,7 @@ Route::group(array('before' => 'admin.auth'), function()
    });
 });
 
-Route::when('comments*', 'moderator_role_only');
-
-Route::filter('admin_role_only', function()
-{
-   if (Auth::user()->isAdmin()) {
-      return Redirect::intended('/')->withMessage('You don\'t have enough permissions to do that.');
-   }
-});
-
-Route::filter('manager_role_only', function()
-{
-   if (!Auth::user()->isManager()) {
-      return Redirect::intended('/')->withMessage('You don\'t have enough permissions to do that.');
-   }
-});
-
-Route::filter('moderator_role_only', function()
-{
-   if (!Auth::user()->isModerator()) {
-      return Redirect::intended('/')->withMessage('YYou don\'t have enough permissions to do that.');
-   }
-});
-
-
-Route::filter('admin.auth', function()
-{
-   if (Auth::guest()) {
-      return Redirect::to('login');
-   }
-});
-
-Route::filter('un_auth', function()
-{
-   if (!Auth::guest()) {
-      Auth::logout();
-   }
-});
+Route::when('comments*', 'admin_role_only');
 
 Route::get('by_tag/{name}', array('as' => 'home.by_tag', 'uses' => 'HomeController@byTag'))->where('title', '[A-Za-z0-9 -_]+');
 Route::get('by_city/{name}', array('as' => 'home.by_city', 'uses' => 'HomeController@byCity'))->where('title', '[A-Za-z0-9 -_]+');
@@ -105,17 +120,3 @@ Route::get('by_company/{name}', array('as' => 'home.by_company', 'uses' => 'Home
 
 Route::get('offer_{id}', array('as' => 'home.offer', 'uses' => 'HomeController@showOffer'))->where('id', '[0-9]+');
 Route::post('offer_{id}', array('before' => 'not_guest|regular_user', 'uses' => 'HomeController@commentOnOffer'))->where('id', '[0-9]+');
-
-Route::filter('not_guest', function(){
-   if (Auth::guest()) {
-      return Redirect::intended('/')->withInput()->with('message', trans('users.must_be_logged'));
-   }
-});
-
-Route::filter('regular_user', function(){
-   if (!Auth::guest()) {
-      if (!Auth::user()->isRegular()) {
-         return Redirect::back()->with('message', 'You cannot do that due to your role.');
-      }
-   }
-});

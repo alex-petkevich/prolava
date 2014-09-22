@@ -60,18 +60,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
       return $admin_role !=null && $this->roles->contains($admin_role->id);
    }
 
-   public function isManager()
-   {
-      $admin_role = Role::whereRole('admin')->first();
-      return $admin_role !=null && $this->roles->contains($admin_role->id) || $this->isAdmin();
-   }
-
-   public function isModerator()
-   {
-      $admin_role = Role::whereRole('admin')->first();
-      return $admin_role !=null && $this->roles->contains($admin_role->id) || $this->isAdmin();
-   }
-
    public function isRegular()
    {
       $roles = array_filter($this->roles->toArray());
