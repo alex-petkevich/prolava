@@ -1,5 +1,5 @@
-<?
-   return array(
+<?php
+return array(
       'create_comment' => 'Создать комментарий',
       'body' => 'Текст:',
       'user_id' => 'ID пользователя:',

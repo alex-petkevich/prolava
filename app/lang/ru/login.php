@@ -1,5 +1,5 @@
-<?
-   return array(
+<?php
+    return array(
       'dashboard' => 'Панель управления',
       'nice_to_see' => 'Приятно познакомиться',
       'login' => 'Логин',

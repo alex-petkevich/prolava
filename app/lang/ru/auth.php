@@ -1,4 +1,4 @@
-<?
+<?php
    return array(
       'email_has_sent' => 'E-mail с паролем был отправлен.',
       'forgot_password' => 'Забыли пароль?',

@@ -1,5 +1,5 @@
-<?
-   return array(
+<?php
+    return array(
       'no_offers' => 'Нет предложений',
       'off' => 'скидка',
       'location' => 'Место',

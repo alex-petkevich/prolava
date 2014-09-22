@@ -95,6 +95,9 @@ class UsersController extends BaseController
 
     public function editProfile() {
         $user = Auth::user();
+        if ($user == null) {
+            return Redirect::to('login');
+        }
         return View::make('users.profile',compact("user"));
     }
 

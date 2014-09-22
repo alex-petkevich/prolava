@@ -1,5 +1,5 @@
-<?
-   return array(
+<?php
+return array(
       'create_company' => 'Создать компанию',
       'title' => 'Заголовок:',
       'title_' => 'Заголовок',

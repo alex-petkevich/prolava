@@ -1,4 +1,4 @@
-<?
+<?php
 return array(
    'create_city' => 'Создать город',
    'name' => 'Имя:',

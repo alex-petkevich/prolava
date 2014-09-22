@@ -1,5 +1,6 @@
-<?
-   return array(
+<?php
+
+  return array(
       'mark' => 'Отметка',
       'offers' => 'Предложения',
       'home' => 'Домой',

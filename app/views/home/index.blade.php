@@ -25,7 +25,7 @@
 @endforeach
 {{ $offers->links() }}
 @else
- {{ trans('offers.no_offers') }}
+{{ trans('offers.no_offers') }}
 @endif
 
 @stop

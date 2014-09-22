@@ -1,4 +1,4 @@
-<?
+<?php
 return array(
    'create_role' => 'Создать роль',
    'role' => 'Роль:',

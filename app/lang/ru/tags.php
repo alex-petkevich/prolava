@@ -1,4 +1,4 @@
-<?
+<?php
 return array(
    'create_tag' => 'Создать тэг',
    'title' => 'Заголовок:',
