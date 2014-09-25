@@ -4,13 +4,6 @@
 
 <h1>{{trans('comments.all_comments')}}</h1>
 
-<form class="navbar-form navbar-left" role="search">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="{{trans('general.search')}}">
-  </div>
-  <button type="submit" class="btn btn-default">{{trans('general.submit')}}</button>
-</form>
-
 <p>{{ link_to_route('comments.create', trans('comments.add_new_comment')) }}</p>
 
 @if ($comments->count())

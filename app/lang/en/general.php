@@ -14,5 +14,11 @@
       'cities' => 'Cities',
       'comments' => 'Comments',
       'roles' => 'Roles',
-      'users' => 'Users'
+      'users' => 'Users',
+      'index_page' => 'Homepage',
+      'profile' => 'Settings',
+      'search' => 'Search',
+      'submit' => 'Submit',
+      'backend' => 'Dashboard'
+
    );

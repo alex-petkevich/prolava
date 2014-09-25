@@ -14,27 +14,22 @@
 </head>
 
 <body>
-
-  <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
-  <div class="container">
+  <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container-fluid">
   <div class="navbar-header">
    <a class="navbar-brand" href="{{ route('home') }}">{{ trans('general.offers') }}</a>
   </div>
     @if(!Auth::guest())
-     <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav">
+     <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
       @if(Auth::user()->isAdmin())
-      <li>{{ link_to_route('offers.index', trans('general.offers')) }}</li>
-      <li>{{ link_to_route('companies.index', trans('general.companies')) }}</li>
-      <li>{{ link_to_route('tags.index', trans('general.tags')) }}</li>
-      <li>{{ link_to_route('cities.index', trans('general.cities')) }}</li>
-      @endif
-      @if(Auth::user()->isAdmin())
-      <li>{{ link_to_route('comments.index', trans('general.comments')) }}</li>
-      @endif
-      @if(Auth::user()->isAdmin())
-      <li>{{ link_to_route('roles.index', trans('general.roles')) }}</li>
-      <li>{{ link_to_route('users.index', trans('general.users')) }}</li>
+      <li @if(Request::path() == 'offers') class="active"@endif>{{ link_to_route('offers.index', trans('general.offers')) }}</li>
+      <li @if(Request::path() == 'companies') class="active"@endif>{{ link_to_route('companies.index', trans('general.companies')) }}</li>
+      <li @if(Request::path() == 'tags') class="active"@endif>{{ link_to_route('tags.index', trans('general.tags')) }}</li>
+      <li @if(Request::path() == 'cities') class="active"@endif>{{ link_to_route('cities.index', trans('general.cities')) }}</li>
+      <li @if(Request::path() == 'comments') class="active"@endif>{{ link_to_route('comments.index', trans('general.comments')) }}</li>
+      <li @if(Request::path() == 'roles') class="active"@endif>{{ link_to_route('roles.index', trans('general.roles')) }}</li>
+      <li @if(Request::path() == 'users') class="active"@endif>{{ link_to_route('users.index', trans('general.users')) }}</li>
       @endif
       <li class="pull-right">{{ link_to_route('login.logout', trans('general.logout')) }}</li>
    </ul>
