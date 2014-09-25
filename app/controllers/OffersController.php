@@ -143,7 +143,7 @@ class OffersController extends BaseController {
          $offer->update(Input::except('tags', 'file', '_method'));
          $offer->tags()->sync($tags);
 
-         return Redirect::route('offers.show', $id);
+         return Redirect::route('offers.index', $id);
       }
 
       return Redirect::route('offers.edit', $id)

@@ -19,6 +19,7 @@ return array(
 	"alpha"            => ":attribute должен содержать только символы.",
 	"alpha_dash"       => ":attribute может содержать только буквы, цифры и тире.",
 	"alpha_num"        => ":attribute может содержать только буквы и цифры.",
+    "alpha_spaces"     => ":attribute может содержать только буквы и пробелы",
 	"array"            => ":attribute должен быть массивом.",
 	"before"           => ":attribute должен быть датой позже :date.",
 	"between"          => array(

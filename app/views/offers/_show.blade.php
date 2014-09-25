@@ -40,9 +40,13 @@
 </div>
 
 {{ Form::open() }}
-{{ Form::textarea('body', Input::old('body'), array('class' => 'input-block-level', 'style' => 'resize: vertical;'))}}
-<div class="input-append">
-   {{ Form::select('mark', array(0 => 5, 1 => 4, 2 => 3, 3 => 2, 4 => 1), Input::old('mark', 0)) }}
+<div class="form-group">
+{{ Form::textarea('body', Input::old('body'), array('class' => 'input-block-level form-control', 'style' => 'resize: vertical;'))}}
+</div>
+<div class="form-group">
+   {{ Form::select('mark', array(0 => 5, 1 => 4, 2 => 3, 3 => 2, 4 => 1), Input::old('mark', 0), array('class' => 'form-control')) }}
+</div>
+<div class="form-group">
    {{ Form::submit(trans('offers.comment'), array('class' => 'btn btn-success', 'style' => 'clear: both;')) }}
 </div>
 {{ Form::close() }}
@@ -55,9 +59,13 @@
 
 @if(Auth::guest() || (!Auth::guest() && !$offer->usersComments->contains(Auth::user()->id)))
 {{ Form::open() }}
-{{ Form::textarea('body', Input::old('body'), array('class' => 'input-block-level', 'style' => 'resize: vertical;'))}}
-<div class="input-append">
-   {{ Form::select('mark', array(5 => 5, 4 => 4, 3 => 3, 2 => 2, 1 => 1), Input::old('mark', 5)) }}
+<div class="form-group">
+{{ Form::textarea('body', Input::old('body'), array('class' => 'input-block-level form-control', 'style' => 'resize: vertical;'))}}
+</div>
+<div class="form-group">
+   {{ Form::select('mark', array(5 => 5, 4 => 4, 3 => 3, 2 => 2, 1 => 1), Input::old('mark', 5), array('class' => 'form-control')) }}
+</div>
+<div class="form-group">
    {{ Form::submit(trans('offers.comment'), array('class' => 'btn btn-success', 'style' => 'clear: both;')) }}
 </div>
 {{ Form::close() }}

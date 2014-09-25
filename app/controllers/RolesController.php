@@ -111,7 +111,7 @@ class RolesController extends BaseController {
 			$role = $this->role->find($id);
 			$role->update($input);
 
-			return Redirect::route('roles.show', $id);
+			return Redirect::route('roles.index', $id);
 		}
 
 		return Redirect::route('roles.edit', $id)

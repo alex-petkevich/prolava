@@ -1,6 +1,6 @@
 <?php
 
-class Comment extends Eloquent {
+class Comment extends BaseModel {
 	protected $guarded = array();
 
 	public static $rules = array(

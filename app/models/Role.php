@@ -1,6 +1,6 @@
 <?php
 
-class Role extends Eloquent {
+class Role extends BaseModel {
 	protected $guarded = array();
 
    public static $rules = array(

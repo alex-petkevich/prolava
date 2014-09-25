@@ -106,7 +106,7 @@ class CitiesController extends BaseController {
 			$city = $this->city->find($id);
 			$city->update($input);
 
-			return Redirect::route('cities.show', $id);
+			return Redirect::route('cities.index', $id);
 		}
 
 		return Redirect::route('cities.edit', $id)

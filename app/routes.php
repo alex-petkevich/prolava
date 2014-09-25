@@ -84,10 +84,7 @@ Route::group(array('before' => 'un_auth'), function()
 
 Route::group(array('before' => 'admin.auth'), function()
 {
-   Route::get('dashboard', function()
-   {
-      return View::make('login.dashboard');
-   });
+   Route::get('dashboard', array('as' => 'login.dashboard', 'uses' => 'LoginController@dashboard'));
 
    Route::group(array('before' => 'admin_role_only'), function()
    {

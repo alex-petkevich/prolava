@@ -1,6 +1,6 @@
 <?php
 
-class City extends Eloquent {
+class City extends BaseModel {
    protected $guarded = array();
 
    public static $rules = array(

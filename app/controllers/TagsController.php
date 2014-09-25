@@ -114,7 +114,7 @@ class TagsController extends BaseController {
 			$tag = $this->tag->find($id);
 			$tag->update($input);
 
-			return Redirect::route('tags.show', $id);
+			return Redirect::route('tags.index', $id);
 		}
 
 		return Redirect::route('tags.edit', $id)

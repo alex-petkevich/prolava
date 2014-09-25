@@ -2,33 +2,38 @@
 <html>
 <head>
    <meta charset="utf-8">
-   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+   <link href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
    @yield('styles')
 </head>
 
 <body>
 
-<div class="navbar navbar-fixed-top">
-   <div class="navbar-inner">
-      <div class="container">
-         <a class="brand" href="{{ route('home') }}">{{ trans('general.offers') }}</a>
-         <ul class="nav">
-            <li><a href="{{ route('home') }}">{{ trans('general.home') }}</a></li>
-         </ul>
-         <div class="btn-group pull-right">
+<nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+       <div class="container">
+        <div class="navbar-header">
+         <a class="navbar-brand" href="{{ route('home') }}">{{ trans('general.offers') }}</a>
+        </div>
+            <ul class="nav nav-pills pull-right">
             @if(Auth::guest())
-            <a href="{{ route('login.index') }}" class="btn">{{ trans('general.login') }}</a>
-            <a href="{{ route('login.register') }}" class="btn">{{ trans('general.register') }}</a>
+                <li><a href="{{ route('login.index') }}">{{ trans('general.login') }}</a></li>
+                <li><a href="{{ route('login.register') }}">{{ trans('general.register') }}</a></li>
             @else
-             <a href="{{ route('home.bookmarks') }}" class="btn">{{ trans('general.bookmarks') }}</a>
-            <a href="{{ route('user.profile') }}" class="btn">{{ trans('general.profile') }}</a>
-            <a href="{{ route('login.logout') }}" class="btn">{{ trans('general.logout') }}</a>
+            @if(Auth::user()->isAdmin())
+                <li><a href="{{ route('login.dashboard') }}" class="btn">{{ trans('general.backend') }}</a></li>
             @endif
-         </div>
+                <li><a href="{{ route('home.bookmarks') }}" class="btn">{{ trans('general.bookmarks') }}</a></li>
+                <li><a href="{{ route('user.profile') }}" class="btn">{{ trans('general.profile') }}</a></li>
+                <li><a href="{{ route('login.logout') }}" class="btn">{{ trans('general.logout') }}</a></li>
+            @endif
+            </ul>
+
       </div>
-   </div>
-</div>
+</nav>
 
 <div class="container">
 
@@ -38,8 +43,8 @@
    </div>
    @endif
 
-   <div class="row-fluid">
-      <div class="span3">
+   <div class="row">
+      <div class="col-md-3">
          <h2>{{ trans('general.last_comments') }}</h2>
 
          @if (count($comments = Comment::take(5)->get()) > 0)
@@ -51,7 +56,7 @@
          @endif
       </div>
 
-      <div class="span9">
+      <div class="col-md-9">
          @yield('main')
       </div>
    </div>

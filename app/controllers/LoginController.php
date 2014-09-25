@@ -100,6 +100,10 @@ class LoginController extends BaseController {
 		//
 	}
 
+    public function dashboard()
+    {
+        return View::make('login.dashboard');
+    }
 	/**
 	 * Remove the specified resource from storage.
 	 *

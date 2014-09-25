@@ -4,8 +4,6 @@
 
 <h1>{{{ trans('login.login') }}}</h1>
 
-<p>{{ link_to_route('login.register', trans('login.register')) }}</p>
-
 <div class="col-xs-4">
 {{ Form::open(array('route' => 'login.index', 'role' => 'form')) }}
 <div class="form-group">

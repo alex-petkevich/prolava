@@ -14,10 +14,7 @@
         {{ Session::get('status') }}
     </div>
     @endif
-    
-<p>{{ link_to_route('login.index', trans('auth.no')) }}</p>
 
-    
 {{ Form::open(array('route' => 'password.remind','role' => 'form')) }}
     <div class="form-group">
       {{ Form::label('email', trans('auth.your_email'), array('class' => 'control-label'))}}

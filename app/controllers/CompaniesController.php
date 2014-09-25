@@ -106,7 +106,7 @@ class CompaniesController extends BaseController {
 			$company = $this->company->find($id);
 			$company->update($input);
 
-			return Redirect::route('companies.show', $id);
+			return Redirect::route('companies.index', $id);
 		}
 
 		return Redirect::route('companies.edit', $id)

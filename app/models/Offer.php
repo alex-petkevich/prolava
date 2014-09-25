@@ -1,6 +1,6 @@
 <?php
 
-class Offer extends Eloquent {
+class Offer extends BaseModel {
 	protected $guarded = array();
 
    public static $rules = array(

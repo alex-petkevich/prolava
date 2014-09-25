@@ -73,7 +73,7 @@ class UsersController extends BaseController
 
       $user->roles()->sync($roles);
 
-      return Redirect::route('users.show', $id);
+      return Redirect::route('users.index', $id);
    }
 
    /**
