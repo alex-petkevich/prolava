@@ -1,12 +1,11 @@
-@extends('layouts.scaffold')
+@extends('layouts.frontend_clean')
 
-@section('main')
-<div class="col-xs-5">
-<h1>{{ trans('login.register') }}</h1>
+@section('content')
+<div class="container">
 
-<p>{{ link_to_route('login.index', trans('login.login')) }}</p>
+{{ Form::open(array('route' => 'login.register', 'role' => 'form','class' => 'form-signup')) }}
+<h2 class="form-signin-heading">{{{ trans('login.register') }}}</h2>
 
-{{ Form::open(array('route' => 'login.register', 'role' => 'form')) }}
     <div class="form-group @if ($errors->has('email')) has-error has-feedback @endif">
       {{ Form::label('email', trans('login.email'), array('class' => 'control-label')) }}
       {{ Form::text('email',null, array('class' => 'form-control')) }}

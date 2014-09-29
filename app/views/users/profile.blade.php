@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends( ( Auth::user()->isAdmin() ? 'layouts.backend' : 'layouts.frontend' ))
 
 @section('main')
 <div class="col-xs-5">

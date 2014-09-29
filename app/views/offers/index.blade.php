@@ -1,6 +1,7 @@
-@extends('layouts.scaffold')
+@extends('layouts.backend')
 
 @section('main')
+
 
 <h1>{{ trans('offers.all_offers') }}</h1>
 

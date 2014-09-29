@@ -43,23 +43,10 @@
    </div>
    @endif
 
-   <div class="row">
-      <div class="col-md-3">
-         <h2>{{ trans('general.last_comments') }}</h2>
+   @yield('content')
 
-         @if (count($comments = Comment::take(5)->get()) > 0)
-         @foreach ($comments as $comment)
-         @include('partials.comment', $comment)
-         @endforeach
-         @else
-         {{ trans('general.no_comments') }}
-         @endif
-      </div>
 
-      <div class="col-md-9">
-         @yield('main')
-      </div>
-   </div>
+
 </div>
 
 <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>

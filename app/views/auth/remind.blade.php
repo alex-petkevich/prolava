@@ -1,9 +1,7 @@
-@extends('layouts.scaffold')
+@extends('layouts.frontend')
 
 @section('main')
-<div class="col-xs-4">
-
-<h1>{{{ trans('auth.forgot_password') }}}</h1>
+<div class="container">
 
     @if (Session::has('error'))
     <div class="alert alert-danger">
@@ -15,7 +13,8 @@
     </div>
     @endif
 
-{{ Form::open(array('route' => 'password.remind','role' => 'form')) }}
+{{ Form::open(array('route' => 'password.remind','role' => 'form','class' => 'form-signin',)) }}
+ <h2 class="form-signin-heading">{{{ trans('auth.forgot_password') }}}</h2>
     <div class="form-group">
       {{ Form::label('email', trans('auth.your_email'), array('class' => 'control-label'))}}
       {{ Form::email('email',null, array('class' => 'form-control')) }}

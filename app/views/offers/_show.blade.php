@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.frontend')
 
 @section('main')
 

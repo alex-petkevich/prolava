@@ -1,27 +1,21 @@
-@extends('layouts.scaffold')
+@extends('layouts.frontend_clean')
 
-@section('main')
+@section('content')
 
-<h1>{{{ trans('login.login') }}}</h1>
+<div class="container">
+{{ Form::open(array('route' => 'login.index','class' => 'form-signin', 'role' => 'form')) }}
+        <h2 class="form-signin-heading">{{{ trans('login.login') }}}</h2>
+        {{ Form::text('email','', array('class' => 'form-control','placeholder' => 'Email address')) }}
+        {{ Form::password('password', array('class' => 'form-control','placeholder' => 'Password')) }}
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+     {{ Form::submit(trans('login.submit'), array('class' => 'btn btn-lg btn-primary btn-block')) }}
+<br/>
+<p>{{ link_to_route('password.remind',  trans('login.forgot_password')) }}</p>
 
-<div class="col-xs-4">
-{{ Form::open(array('route' => 'login.index', 'role' => 'form')) }}
-<div class="form-group">
-      {{ Form::label('email', trans('login.email_or_username')) }}
-      {{ Form::text('email','', array('class' => 'form-control')) }}
-   </div>
-
-<div class="form-group">
-      {{ Form::label('password', trans('login.password')) }}
-      {{ Form::password('password', array('class' => 'form-control')) }}
-</div>
-
-    <div class="form-group">
-      {{ Form::submit(trans('login.submit'), array('class' => 'btn btn-info')) }}
-    </div>
 {{ Form::close() }}
 
-<p>{{ link_to_route('password.remind',  trans('login.forgot_password')) }}</p>
 
 @include('partials.errors', $errors)
 

@@ -1,4 +1,4 @@
-@extends('layouts.scaffold')
+@extends('layouts.backend')
 
 @section('main')
 <div class="col-xs-5">
